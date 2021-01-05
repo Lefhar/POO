@@ -8,7 +8,7 @@ class Employe
     private $_fonction;
     private $_salaire;
     private $_service;
-
+    private $_anciennete;
 
     public function getNom()
     { 
@@ -22,7 +22,7 @@ class Employe
 
     public function getDateEmbauche()
     {
-        return $this->_dateEmbauche;
+        return $this->_dateEmbauche ;
   
     }
 
@@ -31,7 +31,6 @@ class Employe
         return $this->_fonction;
   
     }
-
 
     public function getSalaire()
     {
@@ -43,8 +42,23 @@ class Employe
         return $this->_service;
     }
     
-            
+    public function getAnciennete()
+    {
+         
+        $this->_anciennete = date_diff($this->getDateEmbauche(),new DateTime());
+        return $this->_anciennete->y ;
+
+         
+    }
         
+
+    public function calculerPrime()
+    {
+        $prime = (($this->_salaire*0.05)+(($this->_salaire*$this->getAnciennete())*0.02));
+        return (int)$prime;
+
+    }
+    
     public function setNom($nom)
     {
 
@@ -60,7 +74,8 @@ class Employe
 
     public function setDateEmbauche($dateembauche)
     {
-        $this->_dateEmbauche = $dateembauche;
+
+        $this->_dateEmbauche = DateTime::createFromFormat('d/m/Y', $dateembauche);
     }
 
     public function setFonction($fonction){
@@ -76,9 +91,6 @@ class Employe
     {
         $this->_service = $service;
     }
-
-
-
 
 
 
