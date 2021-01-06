@@ -9,9 +9,19 @@ class Employe
     private $_salaire;
     private $_service;
     private $_anciennete;
+    public static $nbrEmploye = 0;
+
+    public   function __construct() 
+    {
+        
+    
+        self::$nbrEmploye++ ;
+    }
+
 
     public function getNom()
     { 
+       
         return $this->_nom;
     }
 
@@ -61,7 +71,7 @@ class Employe
     
     public function setNom($nom)
     {
-
+      
         $this->_nom = $nom;
     }
 
