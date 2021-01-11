@@ -4,8 +4,8 @@
     //     include $class.".class.php";
     // });
     
-    require_once "./classes/Employe.class.php";
-    // require_once "./classes/Directeur.class.php";
+    //require_once "./classes/Employe.class.php";
+     require_once "./classes/Directeur.class.php";
     require_once "./classes/Agence.class.php";
     
     use PHPUnit\Framework\TestCase; // Charge le framework PhpUnit
